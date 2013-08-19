@@ -41,7 +41,7 @@ By: Crazy Fox
 		$QQ_pic_140 = $this->Get_Mid_Str($source, '":"', '"}');
 		return $QQ_pic_140;
 	}
-	public function Get_QQ_pic_HD($QQ){//获取QQ头像高清(会员专享)
+	public function Get_QQ_pic_HD($QQ){//获取QQ头像高清
 		$source = file_get_contents("http://ptlogin2.qq.com/getface?appid=1006102&imgtype=5&uin=" . $QQ);
 		$source = str_replace("\\/","/",$source);
 		$QQ_pic_HD = $this->Get_Mid_Str($source, '":"', '"}');
@@ -58,12 +58,6 @@ By: Crazy Fox
 	public function Get_Qzone_pic_100($QQ){//获取QQ空间头像 100*100
 		$Qzone_pic_100 = "http://qlogo2.store.qq.com/qzone/" . $QQ . "/" . $QQ . "/100"; 
 		return $Qzone_pic_100;
-	}
-	public function Is_VIP($QQ){//是否为QQ会员
-		  if ($this->Get_QQ_pic_40($QQ) == $this->Get_QQ_pic_HD($QQ))
-				return false;
-		  else
-				return true;
 	}
 	private function Get_Mid_Str($Str, $Beg_Str, $End_Str){//获取文本中的内容
 		$Beg_Str_l = strlen($Beg_Str);
